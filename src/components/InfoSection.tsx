@@ -1,103 +1,188 @@
-const infoCards = [
+const HIGHLIGHTS = [
   {
-    title: "Cum funcționează platforma",
-    desc: "Platforma este destinată exclusiv divertismentului pentru utilizatori 18+. Jocurile folosesc doar monedă virtuală, fără valoare reală, astfel încât experiența rămâne socială și fără risc financiar.",
-    items: [
-      "Accesezi jocul instant, direct din browser.",
-      "Primești și folosești doar monedă virtuală.",
-      "Nu există depuneri, retrageri sau conversii în bani reali.",
+    heading: "Como funciona a plataforma",
+    body: "A plataforma destina-se exclusivamente ao entretenimento de utilizadores maiores de 18 anos. Os jogos usam apenas moeda virtual, sem valor real, para que a experiência seja social e sem risco financeiro.",
+    points: [
+      "Acedes ao jogo de imediato, diretamente no navegador.",
+      "Recebes e utilizas apenas moeda virtual.",
+      "Não existem depósitos, levantamentos ou conversões em dinheiro real.",
     ],
   },
   {
-    title: "De ce aleg utilizatorii această platformă",
-    desc: "Interfața este optimizată pentru mobil, tabletă și desktop, iar sesiunile de joc sunt concepute pentru acces rapid, navigare clară și informații transparente despre reguli și joc responsabil.",
-    items: [
-      "Design clar și ușor de folosit.",
-      "Conținut transparent despre limitări și 18+.",
-      "Linkuri directe către resurse de suport responsabil.",
+    heading: "Porque escolhem esta plataforma",
+    body: "A interface está otimizada para telemóvel, tablet e computador, e as sessões de jogo foram pensadas para um acesso rápido, navegação clara e informação transparente sobre as regras e o jogo responsável.",
+    points: [
+      "Design limpo e simples de utilizar.",
+      "Conteúdo transparente sobre os limites e a regra dos 18+.",
+      "Ligações diretas para recursos de apoio responsável.",
     ],
   },
   {
-    title: "Siguranță și transparență",
-    desc: "Ne concentrăm pe comunicare clară: ce oferă platforma, ce nu oferă platforma și unde găsești informațiile legale necesare pentru utilizare responsabilă.",
-    items: [
-      "Politici și termeni disponibili în footer.",
-      'Mesaje vizibile privind 18+ și "fără bani reali".',
-      "Resurse externe recomandate pentru joc responsabil.",
+    heading: "Segurança e transparência",
+    body: "Damos prioridade a uma comunicação clara: o que a plataforma oferece, o que a plataforma não oferece e onde encontras a informação legal necessária para uma utilização responsável.",
+    points: [
+      "Políticas e termos disponíveis no rodapé.",
+      "Avisos visíveis sobre 18+ e «sem dinheiro real».",
+      "Recursos externos recomendados para o jogo responsável.",
     ],
   },
 ];
 
-const faqs = [
+const QUESTIONS = [
   {
-    q: "Pot câștiga bani reali pe această platformă?",
-    a: "Nu, în niciun caz. Platforma funcționează exclusiv ca un joc social — toate jocurile folosesc monedă virtuală fără nicio valoare financiară reală. Nu există mecanisme de câștig monetar, nu se acordă premii în bani și nu există nicio posibilitate de a transforma moneda virtuală în bani reali.",
+    question: "Posso ganhar dinheiro real nesta plataforma?",
+    answer:
+      "Não, em circunstância alguma. A plataforma funciona exclusivamente como um jogo social — todos os jogos usam moeda virtual sem qualquer valor financeiro real. Não existem mecanismos de ganho monetário, não são atribuídos prémios em dinheiro e não há forma de transformar a moeda virtual em dinheiro real.",
   },
   {
-    q: "Se pot face depuneri sau retrageri de bani?",
-    a: "Nu. Platforma nu acceptă și nu procesează niciun fel de plăți sau transferuri financiare. Moneda virtuală este oferită gratuit pentru demonstrație și nu poate fi convertită, transferată sau retrasă sub nicio formă.",
+    question: "É possível fazer depósitos ou levantamentos?",
+    answer:
+      "Não. A plataforma não aceita nem processa qualquer tipo de pagamentos ou transferências financeiras. A moeda virtual é disponibilizada gratuitamente para demonstração e não pode ser convertida, transferida ou levantada de nenhuma forma.",
   },
   {
-    q: "Ce este moneda virtuală și cum funcționează?",
-    a: "Moneda virtuală este un element de joc folosit exclusiv în cadrul platformei noastre. Funcționează ca un scor intern — poți paria cu ea, o poți câștiga sau pierde în joc, dar nu are nicio valoare în afara platformei.",
+    question: "O que é a moeda virtual e como funciona?",
+    answer:
+      "A moeda virtual é um elemento de jogo usado apenas dentro da nossa plataforma. Funciona como uma pontuação interna — podes apostá-la, ganhá-la ou perdê-la no jogo, mas não tem qualquer valor fora da plataforma.",
   },
   {
-    q: "Platforma este permisă pentru minori?",
-    a: "Nu. Accesul este strict rezervat persoanelor care au împlinit vârsta de 18 ani. Rugăm părinții și tutorii să monitorizeze activitatea online a minorilor.",
+    question: "A plataforma é permitida a menores de idade?",
+    answer:
+      "Não. O acesso está estritamente reservado a pessoas que já tenham completado 18 anos. Pedimos aos pais e tutores que acompanhem a atividade online dos menores.",
   },
   {
-    q: "Este necesară o înregistrare sau un cont?",
-    a: "Nu este obligatorie crearea unui cont pentru a accesa jocurile demonstrative. Poți juca direct din browser, fără a furniza date personale sau financiare.",
+    question: "É necessário registo ou conta?",
+    answer:
+      "Não é obrigatório criar uma conta para aceder aos jogos de demonstração. Podes jogar diretamente no navegador, sem fornecer dados pessoais ou financeiros.",
   },
   {
-    q: "Platforma are nevoie de licență din partea autorității?",
-    a: "Nu. Conform legislației românești (Legea nr. 190/2015), platformele care nu oferă posibilitatea de a paria sau câștiga bani reali nu intră sub incidența reglementărilor privind jocurile de noroc.",
+    question: "A plataforma precisa de licença do SRIJ?",
+    answer:
+      "Não. Ao abrigo da legislação portuguesa (Decreto-Lei n.º 66/2015, RJO), as plataformas que não permitem apostar nem ganhar dinheiro real não estão sujeitas ao regime de licenciamento do Serviço de Regulação e Inspeção de Jogos.",
   },
   {
-    q: "Jocurile reflectă probabilitățile reale ale sloturilor?",
-    a: "Nu. Jocurile de pe această platformă sunt versiuni sociale simplificate, create exclusiv pentru demonstrație și divertisment. Rezultatele sunt generate aleatoriu în scop recreativ.",
+    question: "Os jogos refletem as probabilidades reais das slots?",
+    answer:
+      "Não. Os jogos desta plataforma são versões sociais simplificadas, criadas exclusivamente para demonstração e entretenimento. Os resultados são gerados aleatoriamente, com fins recreativos.",
   },
   {
-    q: "Unde găsesc informații despre joc responsabil?",
-    a: 'In sectiunea "Resurse pentru Jocuri Responsabile" de pe aceasta pagina gasesti linkuri catre organizatii specializate pentru sprijin. Daca tu sau cineva apropiat prezinta semne de dependenta, te incurajam sa contactezi una dintre aceste organizatii.',
+    question: "Onde encontro informação sobre jogo responsável?",
+    answer:
+      "Na secção «Recursos para o Jogo Responsável» desta página encontras ligações para organizações especializadas em apoio. Se tu ou alguém próximo apresentar sinais de dependência, encorajamos o contacto com uma destas organizações.",
   },
 ];
 
 export default function InfoSection() {
   return (
-    <section id="cum-functioneaza" style={{ padding: "0 0 80px" }}>
-      <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 20 }} className="info-grid">
-          {infoCards.map(card => (
-            <article key={card.title} style={{
-              background: "rgba(15,26,46,.58)", border: "1px solid var(--border)",
-              borderRadius: "var(--radius-lg)", padding: 20,
-            }}>
-              <h3 style={{ margin: "0 0 10px", fontSize: 20, letterSpacing: "-.02em" }}>{card.title}</h3>
-              <p style={{ margin: 0, color: "var(--muted)", fontSize: 14, lineHeight: 1.65 }}>{card.desc}</p>
-              <ul style={{ margin: "10px 0 0", paddingLeft: 18, color: "var(--muted)", fontSize: 14, lineHeight: 1.6 }}>
-                {card.items.map(item => <li key={item} style={{ margin: "6px 0" }}>{item}</li>)}
+    <section id="como-funciona" style={{ padding: "0 0 80px" }}>
+      <div className="shell">
+        <div
+          className="highlight-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3,1fr)",
+            gap: 20,
+            marginBottom: 20,
+          }}
+        >
+          {HIGHLIGHTS.map((card) => (
+            <article
+              key={card.heading}
+              style={{
+                background: "rgba(28,17,23,.58)",
+                border: "1px solid var(--hairline)",
+                borderRadius: "var(--round-lg)",
+                padding: 20,
+              }}
+            >
+              <h3
+                style={{
+                  margin: "0 0 10px",
+                  fontSize: 20,
+                  letterSpacing: "-.02em",
+                }}
+              >
+                {card.heading}
+              </h3>
+              <p
+                style={{
+                  margin: 0,
+                  color: "var(--ink-dim)",
+                  fontSize: 14,
+                  lineHeight: 1.65,
+                }}
+              >
+                {card.body}
+              </p>
+              <ul
+                style={{
+                  margin: "10px 0 0",
+                  paddingLeft: 18,
+                  color: "var(--ink-dim)",
+                  fontSize: 14,
+                  lineHeight: 1.6,
+                }}
+              >
+                {card.points.map((point) => (
+                  <li key={point} style={{ margin: "6px 0" }}>
+                    {point}
+                  </li>
+                ))}
               </ul>
             </article>
           ))}
         </div>
 
-        <article style={{
-          background: "rgba(15,26,46,.58)", border: "1px solid var(--border)",
-          borderRadius: "var(--radius-lg)", padding: "28px 28px 12px",
-        }}>
-          <h3 style={{ margin: "0 0 4px", fontSize: 22, letterSpacing: "-.02em" }}>Întrebări frecvente (FAQ)</h3>
-          <p style={{ margin: "0 0 20px", color: "var(--muted)", fontSize: 14 }}>
-            Tot ce trebuie să știi despre această platformă de jocuri sociale.
+        <article
+          style={{
+            background: "rgba(28,17,23,.58)",
+            border: "1px solid var(--hairline)",
+            borderRadius: "var(--round-lg)",
+            padding: "28px 28px 12px",
+          }}
+        >
+          <h3 style={{ margin: "0 0 4px", fontSize: 22, letterSpacing: "-.02em" }}>
+            Perguntas frequentes (FAQ)
+          </h3>
+          <p style={{ margin: "0 0 20px", color: "var(--ink-dim)", fontSize: 14 }}>
+            Tudo o que precisas de saber sobre esta plataforma de jogos sociais.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 32px" }} className="faq-grid">
-            {faqs.map((faq, i) => (
-              <div key={i} style={{
-                padding: "16px 0",
-                borderTop: i === 0 ? "none" : "1px solid rgba(233,238,252,.09)",
-              }}>
-                <strong style={{ display: "block", marginBottom: 8, fontSize: 15, color: "var(--text)" }}>{faq.q}</strong>
-                <p style={{ margin: 0, color: "var(--muted)", fontSize: 14, lineHeight: 1.65 }}>{faq.a}</p>
+          <div
+            className="faq-columns"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "0 32px",
+            }}
+          >
+            {QUESTIONS.map((item, index) => (
+              <div
+                key={item.question}
+                style={{
+                  padding: "16px 0",
+                  borderTop:
+                    index === 0 ? "none" : "1px solid rgba(245,236,238,.09)",
+                }}
+              >
+                <strong
+                  style={{
+                    display: "block",
+                    marginBottom: 8,
+                    fontSize: 15,
+                    color: "var(--ink)",
+                  }}
+                >
+                  {item.question}
+                </strong>
+                <p
+                  style={{
+                    margin: 0,
+                    color: "var(--ink-dim)",
+                    fontSize: 14,
+                    lineHeight: 1.65,
+                  }}
+                >
+                  {item.answer}
+                </p>
               </div>
             ))}
           </div>
@@ -106,10 +191,10 @@ export default function InfoSection() {
 
       <style>{`
         @media (max-width: 900px) {
-          .info-grid { grid-template-columns: 1fr !important; }
+          .highlight-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 760px) {
-          .faq-grid { grid-template-columns: 1fr !important; }
+          .faq-columns { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

@@ -1,45 +1,93 @@
 import Link from "next/link";
 
-const footerLinks = [
-  { href: "/", label: "Acasă" },
-  { href: "/cum-sa-joci", label: "Cum să joci" },
-  { href: "/#responsabil", label: "Jocuri Responsabile" },
-  { href: "/confidentialitate", label: "Confidențialitate & Termeni" },
+const FOOTER_LINKS = [
+  { to: "/", text: "Início" },
+  { to: "/#jogos", text: "Jogos" },
+  { to: "/#como-funciona", text: "Como funciona" },
+  { to: "/#responsavel", text: "Jogo Responsável" },
 ];
 
-export default function Footer() {
+export default function SiteFooter() {
   return (
-    <footer style={{ borderTop: "1px solid var(--border)", padding: "28px 0 40px" }}>
-      <div className="container">
-        <div style={{ display: "flex", justifyContent: "space-between", gap: 20, flexWrap: "wrap", alignItems: "flex-start" }}>
+    <footer
+      style={{ borderTop: "1px solid var(--hairline)", padding: "28px 0 40px" }}
+    >
+      <div className="shell">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            gap: 20,
+            flexWrap: "wrap",
+            alignItems: "flex-start",
+          }}
+        >
           <div>
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
-              {footerLinks.map(l => (
-                <Link key={l.href} href={l.href} style={{
-                  padding: "9px 12px", borderRadius: 10, border: "1px solid var(--border)",
-                  background: "rgba(255,255,255,.03)", color: "var(--muted)", fontWeight: 700, fontSize: 13,
-                }}>
-                  {l.label}
+            <nav
+              style={{
+                display: "flex",
+                gap: 8,
+                flexWrap: "wrap",
+                marginBottom: 16,
+              }}
+            >
+              {FOOTER_LINKS.map((link) => (
+                <Link
+                  key={link.to}
+                  href={link.to}
+                  style={{
+                    padding: "9px 12px",
+                    borderRadius: 10,
+                    border: "1px solid var(--hairline)",
+                    background: "rgba(255,255,255,.03)",
+                    color: "var(--ink-dim)",
+                    fontWeight: 700,
+                    fontSize: 13,
+                  }}
+                >
+                  {link.text}
                 </Link>
               ))}
-            </div>
-            <div style={{
-              display: "inline-flex", alignItems: "center", gap: 6,
-              background: "rgba(255,107,53,.1)", border: "1px solid rgba(255,107,53,.2)",
-              borderRadius: 8, padding: "6px 12px", fontSize: 12, fontWeight: 700, color: "var(--accent)",
-            }}>
-              DOAR 18+ | FĂRĂ BANI REALI | DOAR PENTRU DIVERTISMENT
+            </nav>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                background: "rgba(226,55,68,.1)",
+                border: "1px solid rgba(226,55,68,.2)",
+                borderRadius: 8,
+                padding: "6px 12px",
+                fontSize: 12,
+                fontWeight: 700,
+                color: "var(--brand)",
+              }}
+            >
+              APENAS 18+ | SEM DINHEIRO REAL | APENAS PARA ENTRETENIMENTO
             </div>
           </div>
 
-          <div style={{ color: "var(--muted)", fontSize: 12, maxWidth: 420, lineHeight: 1.6 }}>
-            Nu oferim posibilitatea de a câștiga sau retrage bani reali. Moneda virtuală nu are valoare reală.
-            <br /><br />
-            <strong>Informații juridice (Polonia):</strong><br />
-            NIP: 6812099049<br />
-            Firmă: ER SP Z O O<br />
-            Adresă: 8 Ul. Marii Konopnickiej, Limanowa, 34-600<br />
-            Țara: Polonia
+          <div
+            style={{
+              color: "var(--ink-dim)",
+              fontSize: 12,
+              maxWidth: 420,
+              lineHeight: 1.6,
+            }}
+          >
+            Não disponibilizamos qualquer forma de ganhar ou levantar dinheiro
+            real. A moeda virtual não tem valor real.
+            <br />
+            <br />
+            <strong>Informação legal:</strong>
+            <br />
+            NIF: 6812099049
+            <br />
+            Empresa: ER SP Z O O
+            <br />
+            Morada: 8 Ul. Marii Konopnickiej, Limanowa, 34-600
+            <br />
+            País: Polónia
           </div>
         </div>
       </div>

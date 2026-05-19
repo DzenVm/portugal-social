@@ -2,67 +2,71 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 
-const trustItems = [
-  "Fără depuneri",
-  "Fără retrageri",
-  "Monedă virtuală",
-  "Doar 18+",
-  "Acces instant din browser",
+const PROOF_POINTS = [
+  "Sem depósitos",
+  "Sem levantamentos",
+  "Moeda virtual",
+  "Apenas 18+",
+  "Acesso imediato no navegador",
 ];
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.inner}>
-        {/* Mobile fold: title + image + button fill the screen */}
+    <section className={styles.stage}>
+      <div className={styles.frame}>
+        {/* Mobile fold: heading + artwork + button fill the first screen */}
         <div className={styles.fold}>
-          <h1 className={styles.title}>
-            Sloturi Sociale <span className={styles.accent}>Online</span>
+          <h1 className={styles.heading}>
+            Slots Sociais <span className={styles.highlight}>em Portugal</span>
           </h1>
 
-          <Link href="/joc" className={styles.image} aria-label="Joacă slotul social acum">
+          <Link
+            href="/jogo"
+            className={styles.art}
+            aria-label="Abrir o slot social agora"
+          >
             <Image
               src="/images/hero.webp"
-              alt="Jocuri sociale online — monedă virtuală"
+              alt="Slots sociais online com moeda virtual"
               width={560}
               height={520}
               priority
-              className={styles.img}
+              className={styles.artImg}
             />
           </Link>
 
-          <Link href="/joc" className={`btn btn-hero-cta ${styles.cta}`}>
-            Joacă Acum
+          <Link href="/jogo" className={`cta cta-spotlight ${styles.action}`}>
+            Jogar Agora
           </Link>
         </div>
 
-        {/* Rest of the hero content */}
-        <div className={styles.rest}>
-          <div className={styles.badge}>
-            <span className={styles.dot} />
-            Platformă Sigură · 18+ · Fără Bani Reali
+        {/* Supporting copy */}
+        <div className={styles.copy}>
+          <div className={styles.tag}>
+            <span className={styles.beacon} />
+            Plataforma Segura · 18+ · Sem Dinheiro Real
           </div>
 
-          <p className={styles.desc}>
-            Aceste jocuri sunt exclusiv pentru divertisment. Nu oferim posibilitatea
-            de a câștiga bani reali sau premii cu valoare reală. Totul se joacă cu
-            monedă virtuală fără valoare reală.
+          <p className={styles.lead}>
+            Estes jogos existem unicamente para entretenimento. Não é possível
+            ganhar dinheiro real nem prémios com valor monetário. Tudo decorre
+            com moeda virtual, sem qualquer valor real.
           </p>
 
-          <p className={styles.note}>
-            Acesta este un conținut de joc social. Dacă apar întrebări, consultă{" "}
-            <Link href="/#responsabil" className={styles.noteLink}>
-              pagina de joc responsabil
+          <p className={styles.hint}>
+            Este é conteúdo de jogo social. Em caso de dúvidas, consulta a{" "}
+            <Link href="/#responsavel" className={styles.hintLink}>
+              secção de jogo responsável
             </Link>
             .
           </p>
         </div>
 
-        {/* Trust row */}
-        <div className={styles.trust}>
-          {trustItems.map(text => (
-            <span key={text} className={styles.trustItem}>
-              {text}
+        {/* Trust strip */}
+        <div className={styles.proof}>
+          {PROOF_POINTS.map((label) => (
+            <span key={label} className={styles.proofItem}>
+              {label}
             </span>
           ))}
         </div>

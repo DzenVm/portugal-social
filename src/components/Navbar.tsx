@@ -3,91 +3,142 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const links = [
-  { href: "/#jocuri", label: "Jocuri" },
-  { href: "/#cum-functioneaza", label: "Cum funcționează" },
-  { href: "/#responsabil", label: "Joc Responsabil" },
+const NAV_ITEMS = [
+  { to: "/#jogos", text: "Jogos" },
+  { to: "/#como-funciona", text: "Como funciona" },
+  { to: "/#responsavel", text: "Jogo Responsável" },
 ];
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+export default function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [elevated, setElevated] = useState(false);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
+    const onScroll = () => setElevated(window.scrollY > 30);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <nav
+    <header
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
+        inset: "0 0 auto 0",
         zIndex: 50,
         transition: "background .3s, border-color .3s",
-        background: scrolled ? "rgba(11,18,32,.96)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(233,238,252,.1)" : "1px solid transparent",
+        background: elevated ? "rgba(19,12,16,.96)" : "transparent",
+        backdropFilter: elevated ? "blur(12px)" : "none",
+        borderBottom: elevated
+          ? "1px solid rgba(245,236,238,.1)"
+          : "1px solid transparent",
       }}
     >
-      <div className="container" style={{ display: "flex", alignItems: "center", height: 64, justifyContent: "space-between" }}>
-        {/* Desktop nav */}
-        <div style={{ display: "flex", gap: 28, alignItems: "center" }} className="desktop-nav">
-          {links.map(l => (
+      <div
+        className="shell"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          height: 64,
+          justifyContent: "space-between",
+        }}
+      >
+        <nav
+          className="primary-nav"
+          style={{ display: "flex", gap: 28, alignItems: "center" }}
+        >
+          {NAV_ITEMS.map((item) => (
             <Link
-              key={l.href}
-              href={l.href}
-              style={{ color: "var(--muted)", fontWeight: 600, fontSize: 14, transition: "color .15s" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={e => (e.currentTarget.style.color = "var(--muted)")}
+              key={item.to}
+              href={item.to}
+              style={{
+                color: "var(--ink-dim)",
+                fontWeight: 600,
+                fontSize: 14,
+                transition: "color .15s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--ink)")}
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--ink-dim)")
+              }
             >
-              {l.label}
+              {item.text}
             </Link>
           ))}
-        </div>
+        </nav>
 
-        <Link href="/joc" className="btn" style={{ minWidth: "auto", padding: "10px 22px", fontSize: 14 }}>
-          Joacă Acum
+        <Link
+          href="/jogo"
+          className="cta"
+          style={{ minWidth: "auto", padding: "10px 22px", fontSize: 14 }}
+        >
+          Jogar Agora
         </Link>
 
-        {/* Mobile burger */}
         <button
-          onClick={() => setOpen(!open)}
-          style={{ display: "none", background: "none", border: "none", color: "var(--text)", fontSize: 24, cursor: "pointer" }}
-          className="burger-btn"
+          type="button"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Abrir menu"
+          aria-expanded={menuOpen}
+          className="menu-toggle"
+          style={{
+            display: "none",
+            background: "none",
+            border: "none",
+            color: "var(--ink)",
+            fontSize: 24,
+            cursor: "pointer",
+          }}
         >
-          {open ? "✕" : "☰"}
+          {menuOpen ? "✕" : "☰"}
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <div style={{ background: "rgba(11,18,32,.98)", borderTop: "1px solid var(--border)", padding: "16px 20px", display: "flex", flexDirection: "column", gap: 12 }}>
-          {links.map(l => (
+      {menuOpen && (
+        <div
+          style={{
+            background: "rgba(19,12,16,.98)",
+            borderTop: "1px solid var(--hairline)",
+            padding: "16px 20px",
+            display: "flex",
+            flexDirection: "column",
+            gap: 12,
+          }}
+        >
+          {NAV_ITEMS.map((item) => (
             <Link
-              key={l.href}
-              href={l.href}
-              style={{ color: "var(--muted)", fontWeight: 600, padding: "8px 0", borderBottom: "1px solid var(--border)" }}
-              onClick={() => setOpen(false)}
+              key={item.to}
+              href={item.to}
+              onClick={closeMenu}
+              style={{
+                color: "var(--ink-dim)",
+                fontWeight: 600,
+                padding: "8px 0",
+                borderBottom: "1px solid var(--hairline)",
+              }}
             >
-              {l.label}
+              {item.text}
             </Link>
           ))}
-          <Link href="/joc" className="btn" style={{ textAlign: "center", marginTop: 8 }}>
-            Joacă Acum
+          <Link
+            href="/jogo"
+            className="cta"
+            style={{ textAlign: "center", marginTop: 8 }}
+            onClick={closeMenu}
+          >
+            Jogar Agora
           </Link>
         </div>
       )}
 
       <style>{`
         @media (max-width: 768px) {
-          .desktop-nav { display: none !important; }
-          .burger-btn { display: block !important; }
+          .primary-nav { display: none !important; }
+          .menu-toggle { display: block !important; }
         }
       `}</style>
-    </nav>
+    </header>
   );
 }
