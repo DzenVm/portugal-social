@@ -26,7 +26,7 @@ export default function Hero() {
             aria-label="Abrir o slot social agora"
           >
             <Image
-              src="/images/hero.webp"
+              src="/images/heroimage_Lightroom_Mobile_Android.webp"
               alt="Slots sociais online com moeda virtual"
               width={560}
               height={520}

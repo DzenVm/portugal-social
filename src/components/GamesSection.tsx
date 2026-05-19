@@ -9,28 +9,28 @@ const CATALOGUE = [
     title: "Slot social: Egito Antigo",
     summary:
       "Um slot social clássico e muito procurado. Sem dinheiro real — apenas moeda virtual.",
-    cover: "/images/game-pharaoh.jpg",
+    cover: "/images/Pharaoh-Fortune-Social__Lightroom_Mobile_Android.jpg",
   },
   {
     id: "cleopatra",
     title: "Slot social: Rainhas do Egito",
     summary:
       "Um slot social popular, com símbolos clássicos. Não existem ganhos em dinheiro real.",
-    cover: "/images/game-cleopatra.jpg",
+    cover: "/images/Cleopatra-Gold-Social_Lightroom_Mobile_Android.jpg",
   },
   {
     id: "aztec",
     title: "Slot social: Civilizações Astecas",
     summary:
       "Uma experiência social inspirada em lendas. Apenas entretenimento, sem valor real.",
-    cover: "/images/game-aztec.jpg",
+    cover: "/images/Aztec-Fortune-Social_Lightroom_Mobile_Android.jpg",
   },
   {
     id: "bonanza",
     title: "Slot social: Aventura Selvagem",
     summary:
       "Slot social cheio de energia para diversão. Sem depósitos e sem levantamentos; a moeda é sempre virtual.",
-    cover: "/images/game-bonanza.jpg",
+    cover: "/images/Wild-Bonanza-Social__Lightroom_Mobile_Android.jpg",
   },
 ];
 
