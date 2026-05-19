@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-    --bg: #0b1220;
-    --card: #0f1a2e;
-    --text: #e9eefc;
-    --muted: rgba(233, 238, 252, .72);
-    --accent: #ff6b35;
-    --accent2: #ffd700;
-    --ok: #33d17a;
-    --border: rgba(233, 238, 252, .12);
-    --radius-lg: 18px;
-    --radius-md: 14px;
-    --transition: .15s ease;
+    --canvas: #130c10;
+    --panel: #1c1117;
+    --ink: #f5ecee;
+    --ink-dim: rgba(245, 236, 238, .70);
+    --brand: #e23744;
+    --brand-gold: #f4c430;
+    --positive: #3ddc84;
+    --hairline: rgba(245, 236, 238, .12);
+    --round-lg: 18px;
+    --round-md: 14px;
+    --motion: .15s ease;
 }
 
 *,
@@ -28,10 +28,10 @@ body {
     margin: 0;
     font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(255, 107, 53, .32), transparent 60%),
-        radial-gradient(900px 500px at 90% 0%, rgba(255, 215, 0, .22), transparent 55%),
-        var(--bg);
-    color: var(--text);
+        radial-gradient(1200px 600px at 8% -12%, rgba(226, 55, 68, .34), transparent 60%),
+        radial-gradient(900px 520px at 92% 2%, rgba(244, 196, 48, .20), transparent 56%),
+        var(--canvas);
+    color: var(--ink);
     line-height: 1.55;
     overflow-x: hidden;
 }
@@ -41,78 +41,78 @@ a {
     text-decoration: none;
 }
 
-.container {
+.shell {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* ── Buttons ── */
-.btn {
+/* ── Action buttons ── */
+.cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 14px 18px;
-    border-radius: var(--radius-lg);
+    border-radius: var(--round-lg);
     font-weight: 900;
     border: 1px solid rgba(255, 255, 255, .12);
-    background: linear-gradient(135deg, rgba(255, 107, 53, .95), rgba(255, 215, 0, .85));
-    color: #111827;
+    background: linear-gradient(135deg, rgba(226, 55, 68, .96), rgba(244, 196, 48, .88));
+    color: #1a0d10;
     min-width: 200px;
     cursor: pointer;
-    transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+    transition: transform var(--motion), box-shadow var(--motion), filter var(--motion);
     font-size: 15px;
     line-height: 1;
 }
 
-.btn:hover {
+.cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 36px rgba(255, 107, 53, .24);
+    box-shadow: 0 14px 36px rgba(226, 55, 68, .26);
     filter: saturate(1.1);
 }
 
-.btn:active {
+.cta:active {
     transform: translateY(0);
 }
 
-.btn-hero-cta {
+.cta-spotlight {
     padding: 22px 34px;
     min-width: 300px;
     font-size: 21px;
     border-radius: 20px;
-    box-shadow: 0 14px 40px rgba(255, 107, 53, .22), 0 8px 18px rgba(255, 215, 0, .12);
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: #111827;
+    box-shadow: 0 14px 40px rgba(226, 55, 68, .24), 0 8px 18px rgba(244, 196, 48, .12);
+    background: linear-gradient(135deg, var(--brand), var(--brand-gold));
+    color: #1a0d10;
     border: none;
-    animation: ctaGradientShift 6s ease-in-out infinite;
+    animation: spotlightShift 6s ease-in-out infinite;
     background-size: 200% 200%;
 }
 
-.btn-hero-cta:hover {
+.cta-spotlight:hover {
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 20px 54px rgba(255, 107, 53, .30), 0 10px 22px rgba(255, 215, 0, .18);
+    box-shadow: 0 20px 54px rgba(226, 55, 68, .32), 0 10px 22px rgba(244, 196, 48, .18);
 }
 
-@keyframes ctaGradientShift {
+@keyframes spotlightShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* ── Cards ── */
-.card {
-    background: rgba(15, 26, 46, .65);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+/* ── Surface panels ── */
+.surface {
+    background: rgba(28, 17, 23, .65);
+    border: 1px solid var(--hairline);
+    border-radius: var(--round-lg);
     padding: 20px;
 }
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: rgba(255, 107, 53, .5); border-radius: 3px; }
+::-webkit-scrollbar-track { background: var(--canvas); }
+::-webkit-scrollbar-thumb { background: rgba(226, 55, 68, .5); border-radius: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
-    .btn-hero-cta { animation: none; }
-    .btn-hero-cta:hover, .btn:hover { transform: none; }
+    .cta-spotlight { animation: none; }
+    .cta-spotlight:hover, .cta:hover { transform: none; }
 }
