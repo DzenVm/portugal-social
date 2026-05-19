@@ -1,9 +1,21 @@
-"use client";
+const GUIDANCE = [
+  {
+    title: "Aviso legal",
+    text: "Acesso reservado a maiores de 18 anos. Este site é informativo e não opera jogos. Jogue com responsabilidade. Em caso de dúvidas sobre dependência, procure apoio profissional.",
+  },
+  {
+    title: "Jogo responsável",
+    text: "Defina limites de tempo e dinheiro. Nunca jogue para recuperar perdas. Se o jogo deixar de ser divertimento, contacte os serviços de apoio indicados abaixo.",
+  },
+  {
+    title: "Sinais de alerta",
+    text: "Mentir sobre apostas, pedir emprestado para jogar ou negligenciar trabalho e família são sinais de risco. A ajuda é confidencial e gratuita.",
+  },
+];
 
 const SUPPORT_ORGS = [
-  { name: "SICAD", url: "https://www.sicad.pt/" },
-  { name: "Jogo Responsável", url: "https://www.jogoresponsavel.pt/" },
   { name: "SRIJ", url: "https://www.srij.turismodeportugal.pt/" },
+  { name: "ICAD", url: "https://www.icad.pt/" },
 ];
 
 export default function ResponsibleSection() {
@@ -20,7 +32,7 @@ export default function ResponsibleSection() {
         >
           <h2
             style={{
-              margin: "0 0 16px",
+              margin: "0 0 18px",
               fontSize: 22,
               fontWeight: 900,
               letterSpacing: "-.02em",
@@ -29,12 +41,53 @@ export default function ResponsibleSection() {
             Recursos para o Jogo Responsável
           </h2>
 
+          <div className="responsible-grid">
+            {GUIDANCE.map((block) => (
+              <article key={block.title} className="responsible-card">
+                <h3
+                  style={{
+                    margin: "0 0 8px",
+                    fontSize: 16,
+                    fontWeight: 800,
+                  }}
+                >
+                  {block.title}
+                </h3>
+                <p
+                  style={{
+                    margin: 0,
+                    color: "var(--ink-dim)",
+                    fontSize: 13.5,
+                    lineHeight: 1.65,
+                  }}
+                >
+                  {block.text}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <p
+            style={{
+              margin: "16px 0",
+              padding: "14px 18px",
+              borderRadius: "var(--round-md)",
+              border: "1px solid rgba(226,55,68,.3)",
+              background: "rgba(226,55,68,.1)",
+              color: "var(--ink)",
+              fontWeight: 800,
+              fontSize: 14,
+              textAlign: "center",
+            }}
+          >
+            O jogo pode criar dependência. Jogue com moderação.
+          </p>
+
           <div
             style={{
               display: "flex",
               alignItems: "stretch",
               gap: 12,
-              marginBottom: 16,
               flexWrap: "wrap",
             }}
           >
@@ -63,83 +116,52 @@ export default function ResponsibleSection() {
                 href={org.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "0 16px",
-                  minHeight: 50,
-                  flex: "1 1 120px",
-                  minWidth: 120,
-                  borderRadius: "var(--round-md)",
-                  border: "1px solid var(--hairline)",
-                  background: "rgba(255,255,255,.04)",
-                  fontWeight: 800,
-                  fontSize: "clamp(13px,1.5vw,16px)",
-                  color: "var(--ink)",
-                  whiteSpace: "nowrap",
-                  transition:
-                    "transform var(--motion), border-color var(--motion)",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget;
-                  el.style.transform = "translateY(-2px)";
-                  el.style.borderColor = "rgba(226,55,68,.3)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget;
-                  el.style.transform = "";
-                  el.style.borderColor = "";
-                }}
+                className="responsible-org"
               >
                 {org.name}
               </a>
             ))}
           </div>
-
-          <p
-            style={{
-              margin: "0 0 14px",
-              color: "var(--ink-dim)",
-              lineHeight: 1.65,
-              fontSize: 14,
-            }}
-          >
-            Estas organizações disponibilizam apoio e recursos para o jogo
-            responsável. Esta plataforma não oferece jogos a dinheiro real e não
-            necessita de licença da entidade reguladora nacional.
-          </p>
-
-          <div
-            style={{
-              padding: "16px 18px",
-              borderRadius: "var(--round-md)",
-              border: "1px solid var(--hairline)",
-              background: "rgba(255,255,255,.02)",
-              marginBottom: 18,
-            }}
-          >
-            <p
-              style={{
-                margin: 0,
-                color: "var(--ink-dim)",
-                lineHeight: 1.7,
-                fontSize: 13,
-              }}
-            >
-              <strong>Aviso Legal nos Termos da Legislação Portuguesa:</strong>{" "}
-              Esta plataforma disponibiliza jogos sociais apenas para fins de
-              entretenimento, no quadro do Decreto-Lei n.º 66/2015 (RJO) relativo
-              aos jogos e apostas online. Trata-se de uma plataforma de jogos
-              sociais — não estão disponíveis jogos a dinheiro real. Todos os
-              jogos utilizam exclusivamente moeda virtual sem valor real. Não é
-              possível depositar, ganhar ou levantar dinheiro real. A moeda
-              virtual não tem valor real e não pode ser trocada por dinheiro
-              real. A plataforma destina-se a utilizadores maiores de 18 anos.
-            </p>
-          </div>
         </div>
       </div>
+
+      <style>{`
+        .responsible-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+        }
+        .responsible-card {
+          background: rgba(255,255,255,.03);
+          border: 1px solid var(--hairline);
+          border-radius: var(--round-md);
+          padding: 16px 18px;
+        }
+        .responsible-org {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 18px;
+          min-height: 50px;
+          flex: 1 1 140px;
+          min-width: 140px;
+          border-radius: var(--round-md);
+          border: 1px solid var(--hairline);
+          background: rgba(255,255,255,.04);
+          font-weight: 800;
+          font-size: clamp(13px, 1.5vw, 16px);
+          color: var(--ink);
+          white-space: nowrap;
+          transition: transform var(--motion), border-color var(--motion);
+        }
+        .responsible-org:hover {
+          transform: translateY(-2px);
+          border-color: rgba(226,55,68,.4);
+        }
+        @media (max-width: 760px) {
+          .responsible-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
     </section>
   );
 }
