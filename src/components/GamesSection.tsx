@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 
@@ -36,31 +34,7 @@ const CATALOGUE = [
 
 function GameCard({ game }: { game: (typeof CATALOGUE)[number] }) {
   return (
-    <article
-      style={{
-        background: "rgba(28,17,23,.65)",
-        border: "1px solid var(--hairline)",
-        borderRadius: "var(--round-lg)",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        transition:
-          "transform var(--motion), box-shadow var(--motion), border-color var(--motion)",
-      }}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget;
-        el.style.transform = "translateY(-4px)";
-        el.style.boxShadow =
-          "0 20px 48px rgba(226,55,68,.14), 0 8px 24px rgba(0,0,0,.28)";
-        el.style.borderColor = "rgba(226,55,68,.28)";
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget;
-        el.style.transform = "";
-        el.style.boxShadow = "";
-        el.style.borderColor = "";
-      }}
-    >
+    <article className="game-card">
       <div style={{ padding: "14px 16px 0" }}>
         <span
           style={{
@@ -189,6 +163,20 @@ export default function GamesSection() {
       </div>
 
       <style>{`
+        .game-card {
+          background: rgba(28,17,23,.65);
+          border: 1px solid var(--hairline);
+          border-radius: var(--round-lg);
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          transition: transform var(--motion), box-shadow var(--motion), border-color var(--motion);
+        }
+        .game-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 20px 48px rgba(226,55,68,.14), 0 8px 24px rgba(0,0,0,.28);
+          border-color: rgba(226,55,68,.28);
+        }
         @media (max-width: 700px) {
           .catalogue-grid { grid-template-columns: 1fr !important; }
         }
