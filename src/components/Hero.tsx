@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import KeepParamsLink from "./KeepParamsLink";
 import styles from "./Hero.module.css";
 
 const PROOF_POINTS = [
@@ -20,10 +21,10 @@ export default function Hero() {
             Slots Sociais <span className={styles.highlight}>em Portugal</span>
           </h1>
 
-          <Link
+          <KeepParamsLink
             href="/jogo"
             className={styles.art}
-            aria-label="Abrir o slot social agora"
+            ariaLabel="Abrir o slot social agora"
           >
             <Image
               src="/images/heroimage_Lightroom_Mobile_Android.webp"
@@ -33,11 +34,14 @@ export default function Hero() {
               priority
               className={styles.artImg}
             />
-          </Link>
+          </KeepParamsLink>
 
-          <Link href="/jogo" className={`cta cta-spotlight ${styles.action}`}>
+          <KeepParamsLink
+            href="/jogo"
+            className={`cta cta-spotlight ${styles.action}`}
+          >
             Jogar Agora
-          </Link>
+          </KeepParamsLink>
         </div>
 
         {/* Supporting copy */}
