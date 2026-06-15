@@ -5,6 +5,8 @@ const FOOTER_LINKS = [
   { to: "/#jogos", text: "Jogos" },
   { to: "/#como-funciona", text: "Como funciona" },
   { to: "/#responsavel", text: "Jogo Responsável" },
+  { to: "/privacidade", text: "Privacidade" },
+  { to: "/termos", text: "Termos" },
 ];
 
 export default function SiteFooter() {
@@ -77,6 +79,11 @@ export default function SiteFooter() {
           >
             Não disponibilizamos qualquer forma de ganhar ou levantar dinheiro
             real. A moeda virtual não tem valor real.
+            <br />
+            <br />
+            As designações e imagens dos jogos são meramente ilustrativas e
+            fictícias. Não estão associadas, nem representam, quaisquer marcas,
+            logótipos ou produtos de jogo a dinheiro real.
             <br />
             <br />
             <strong>Informação legal:</strong>

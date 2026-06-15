@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import SiteFooter from "@/components/Footer";
+import AgeGate from "@/components/AgeGate";
 import SlotSymbol, {
   SYMBOLS,
   SYMBOL_LABEL,
@@ -243,6 +244,8 @@ export default function SlotMachineClient() {
 
   return (
     <div className={styles.wrap}>
+      <AgeGate />
+
       {/* Topbar */}
       <div className={styles.topbar}>
         <div className={styles.pills}>
