@@ -81,13 +81,13 @@ export default function SiteFooter() {
             <br />
             <strong>Informação legal:</strong>
             <br />
-            NIF: 6812099049
+            IČ: 28106903
             <br />
-            Empresa: ER SP Z O O
+            Empresa: DWELLING s.r.o.
             <br />
-            Morada: 8 Ul. Marii Konopnickiej, Limanowa, 34-600
+            Morada: Lidická tř. 1274/246, České Budějovice 7, PSČ 37007
             <br />
-            País: Polónia
+            País: República Checa
           </div>
         </div>
       </div>
